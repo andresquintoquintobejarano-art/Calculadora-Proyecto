@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Calculadora web con validación de entradas, manejo de errores e historial.">
-  <title>Calculadora · Herramienta 4</title>
+  <meta name="description" content="Calculadora web con validación de entradas, manejo de errores, historial y consumo de API de GitHub.">
+  <title>Calculadora · API GitHub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -55,9 +55,32 @@
       <p id="historial-vacio" class="vacio">Aún no hay operaciones.</p>
       <p class="atajos">Atajos: números, <kbd>+ − * /</kbd>, <kbd>Enter</kbd>, <kbd>Esc</kbd>, <kbd>⌫</kbd></p>
     </aside>
+
+    <aside class="panel panel-api" aria-label="Consulta API de GitHub">
+      <header>
+        <h2>API GitHub</h2>
+        <span class="badge">REST</span>
+      </header>
+
+      <form id="form-github" class="form-github">
+        <input
+          id="github-usuario"
+          type="text"
+          placeholder="Usuario (ej. octocat)"
+          value="octocat"
+          aria-label="Usuario de GitHub"
+          autocomplete="off"
+        >
+        <button type="submit" id="btn-github" class="btn-buscar">Buscar</button>
+      </form>
+
+      <p id="github-estado" class="github-estado" role="status" aria-live="polite"></p>
+      <div id="github-resultado" class="github-resultado" hidden></div>
+    </aside>
   </main>
 
   <script src="calculadora.js"></script>
+  <script src="github-api.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

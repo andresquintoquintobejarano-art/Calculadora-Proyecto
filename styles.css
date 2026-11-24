@@ -1,106 +1,70 @@
-:root {
-  --bg: #0b1020;
-  --texto: #f2f4ff;
-  --suave: #9aa3c7;
-  --vidrio: rgba(255, 255, 255, 0.07);
-  --borde: rgba(255, 255, 255, 0.14);
-  --acento: linear-gradient(135deg, #7c5cff, #ff5c9d);
-  --op: linear-gradient(135deg, #5b7cff, #7c5cff);
-  --radio: 18px;
+/* Panel API GitHub */
+.panel-api { width: 290px; }
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(124, 92, 255, 0.25);
+  border: 1px solid rgba(157, 176, 255, 0.35);
+  color: #cdd6ff;
 }
 
-* { box-sizing: border-box; margin: 0; }
-
-body {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px 16px;
-  background: var(--bg);
-  color: var(--texto);
-  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
-  overflow-x: hidden;
-}
-
-.fondo span {
-  position: fixed;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.45;
-  z-index: -1;
-  animation: flotar 14s ease-in-out infinite alternate;
-}
-.fondo span:nth-child(1) { background: #7c5cff; top: -100px; left: -80px; }
-.fondo span:nth-child(2) { background: #ff5c9d; bottom: -120px; right: -60px; animation-delay: -5s; }
-.fondo span:nth-child(3) { background: #2dd4bf; top: 40%; left: 55%; width: 260px; height: 260px; opacity: 0.25; animation-delay: -9s; }
-
-@keyframes flotar { to { transform: translate(40px, 30px) scale(1.1); } }
-
-.layout { display: flex; gap: 20px; align-items: stretch; justify-content: center; flex-wrap: wrap; width: 100%; }
-
-.calculadora, .panel {
-  background: var(--vidrio);
+.form-github { display: flex; gap: 8px; margin-bottom: 10px; }
+.form-github input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  border-radius: 12px;
   border: 1px solid var(--borde);
-  border-radius: 28px;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
-}
-
-.calculadora { width: 340px; max-width: 100%; padding: 20px; }
-
-.pantalla-caja {
-  min-height: 130px;
-  padding: 14px 8px 6px;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.expresion { min-height: 22px; color: var(--suave); font-size: 1rem; }
-.pantalla { display: block; font-size: 3rem; font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
-.pantalla[data-largo="lg"] { font-size: 2.3rem; }
-.pantalla[data-largo="xl"] { font-size: 1.7rem; }
-.mensaje { min-height: 20px; color: #ff8fa3; font-size: 0.85rem; }
-
-.teclado { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
-
-.btn {
-  aspect-ratio: 1;
-  border: 1px solid var(--borde);
-  border-radius: var(--radio);
-  background: var(--vidrio);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--texto);
   font: inherit;
-  font-size: 1.35rem;
+  font-size: 0.9rem;
+}
+.form-github input:focus { outline: 2px solid #9db0ff; outline-offset: 1px; }
+
+.btn-buscar {
+  padding: 9px 14px;
+  border-radius: 12px;
+  border: 0;
+  background: var(--op);
+  color: var(--texto);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.12s, filter 0.15s, background 0.15s;
 }
-.btn:hover { filter: brightness(1.25); }
-.btn:active { transform: scale(0.92); }
-.btn:focus-visible, .link:focus-visible { outline: 2px solid #9db0ff; outline-offset: 2px; }
-.btn.accion { color: #9be7ff; background: rgba(155, 231, 255, 0.1); }
-.btn.op { background: var(--op); border-color: transparent; font-size: 1.6rem; }
-.btn.igual { background: var(--acento); border-color: transparent; font-size: 1.7rem; box-shadow: 0 8px 22px rgba(255, 92, 157, 0.35); }
+.btn-buscar:disabled { opacity: 0.6; cursor: wait; }
 
-.sacudir { animation: sacudir 0.4s; }
-@keyframes sacudir {
-  20%, 60% { transform: translateX(-7px); }
-  40%, 80% { transform: translateX(7px); }
+.github-estado { font-size: 0.84rem; color: var(--suave); min-height: 18px; margin-bottom: 8px; }
+.github-estado.error { color: #ff8fa3; }
+
+.github-perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--vidrio);
+  margin-bottom: 10px;
 }
+.github-perfil img { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--borde); }
+.github-perfil a { color: var(--texto); font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+.github-perfil a:hover { text-decoration: underline; }
+.github-meta { color: var(--suave); font-size: 0.78rem; margin-top: 2px; }
 
-.panel { width: 260px; max-width: 100%; padding: 22px 18px; display: flex; flex-direction: column; }
-.panel header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-.panel h2 { font-size: 1.1rem; }
-.link { background: none; border: 0; color: #9db0ff; font: inherit; font-size: 0.85rem; cursor: pointer; }
-.historial { list-style: none; padding: 0; display: grid; gap: 8px; }
-.historial li { padding: 10px 12px; border-radius: 12px; background: var(--vidrio); font-size: 0.9rem; word-break: break-word; }
-.vacio { color: var(--suave); font-size: 0.9rem; }
-.atajos { margin-top: auto; padding-top: 18px; color: var(--suave); font-size: 0.78rem; line-height: 1.7; }
-kbd { padding: 1px 6px; border: 1px solid var(--borde); border-radius: 6px; background: var(--vidrio); font-family: inherit; }
-
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+.github-repos { list-style: none; padding: 0; display: grid; gap: 6px; }
+.github-repos li {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--vidrio);
+  font-size: 0.82rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 }
+.github-repos a { color: #9be7ff; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.github-repos a:hover { text-decoration: underline; }
+.github-repos span { color: var(--suave); font-size: 0.74rem; flex-shrink: 0; }
