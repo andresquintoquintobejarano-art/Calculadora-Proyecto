@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculadora web con validación de entradas, manejo de errores e historial.">
+  <title>Calculadora · Herramienta 4</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="fondo" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <main class="layout">
+    <section id="calculadora" class="calculadora" aria-label="Calculadora">
+      <div class="pantalla-caja">
+        <div id="expresion" class="expresion" aria-hidden="true"></div>
+        <output id="pantalla" class="pantalla" aria-live="polite">0</output>
+        <p id="mensaje" class="mensaje" role="alert"></p>
+      </div>
+
+      <div class="teclado">
+        <button class="btn accion" data-accion="limpiar" aria-label="Limpiar todo">C</button>
+        <button class="btn accion" data-accion="signo" aria-label="Cambiar signo">±</button>
+        <button class="btn accion" data-accion="porcentaje" aria-label="Porcentaje">%</button>
+        <button class="btn op" data-op="÷" aria-label="Dividir">÷</button>
+
+        <button class="btn" data-num="7">7</button>
+        <button class="btn" data-num="8">8</button>
+        <button class="btn" data-num="9">9</button>
+        <button class="btn op" data-op="×" aria-label="Multiplicar">×</button>
+
+        <button class="btn" data-num="4">4</button>
+        <button class="btn" data-num="5">5</button>
+        <button class="btn" data-num="6">6</button>
+        <button class="btn op" data-op="-" aria-label="Restar">−</button>
+
+        <button class="btn" data-num="1">1</button>
+        <button class="btn" data-num="2">2</button>
+        <button class="btn" data-num="3">3</button>
+        <button class="btn op" data-op="+" aria-label="Sumar">+</button>
+
+        <button class="btn accion" data-accion="borrar" aria-label="Borrar último dígito">⌫</button>
+        <button class="btn" data-num="0">0</button>
+        <button class="btn" data-accion="punto" aria-label="Punto decimal">.</button>
+        <button class="btn igual" data-accion="calcular" aria-label="Calcular">=</button>
+      </div>
+    </section>
+
+    <aside class="panel" aria-label="Historial">
+      <header>
+        <h2>Historial</h2>
+        <button class="link" data-accion="limpiar-historial">Limpiar</button>
+      </header>
+      <ol id="historial" class="historial"></ol>
+      <p id="historial-vacio" class="vacio">Aún no hay operaciones.</p>
+      <p class="atajos">Atajos: números, <kbd>+ − * /</kbd>, <kbd>Enter</kbd>, <kbd>Esc</kbd>, <kbd>⌫</kbd></p>
+    </aside>
+  </main>
+
+  <script src="calculadora.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
